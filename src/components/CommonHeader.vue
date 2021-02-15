@@ -28,6 +28,7 @@ export default {
 
 <style lang="scss">
 .el-header {
+  padding-left: 0;
   width: 100%;
   padding-left: 0;
   background-color: #eeeeee;
