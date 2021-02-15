@@ -6,12 +6,12 @@
 
 <style lang="scss">
 html {
+  height: 100%;
   body {
-    background: url('./assets/img/background.jpg') fixed center;
+    height: 100%;
     #app {
       height: 100%;
-      margin: 0;
-      padding: 0;
+      background-color: #2d3a4b;
     }
   }
 }

@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Login from '../views/Login';
-import Home from '../views/Home';
+import Main from '../views/Main';
 
 Vue.use(VueRouter);
 
@@ -13,9 +13,9 @@ const routes = [
     hidden: true
   },
   {
-    path: '/home',
-    name: 'Home',
-    component: Home
+    path: '/main',
+    name: 'Main',
+    component: Main
   }
 ];
 

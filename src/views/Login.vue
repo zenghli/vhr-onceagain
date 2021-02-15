@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="height: 100%">
     <el-form
       v-loading="loading"
       element-loading-text="网速不给力啊，还在登陆，请稍后片刻！"
@@ -17,7 +17,6 @@
       <el-form-item prop="password">
         <el-input type="password" v-model="loginForm.password" auto-complete="false" placeholder="请输入密码" @keydown.enter.native="submitForm"></el-input>
       </el-form-item>
-      <el-checkbox class="loginRemember" v-model="checked">记住密码</el-checkbox>
       <el-button type="primary" style="width: 100%" @click="submitForm" round>登录</el-button>
     </el-form>
   </div>
@@ -52,7 +51,7 @@ export default {
             if (resp) {
               // console.log(resp);
               window.sessionStorage.setItem('user', JSON.stringify(resp.object));
-              this.$router.replace('/home');
+              this.$router.replace('/main');
               // let path = this.$route.query.redirect;
               // this.$router.replace(path === '/' || path === undefined ? '/home' : path);
             }
@@ -70,24 +69,21 @@ export default {
 
 <style lang="scss">
 .loginContainer {
+  height: 100%;
   border-radius: 15px;
   background-clip: padding-box;
-  margin: 180px auto;
-  width: 350px;
-  padding: 35px 35px 15px 35px;
-  background: whitesmoke;
-  border: 1px solid #151414;
-  box-shadow: 0 0 25px #151414;
+  margin: 0 auto;
+  width: 380px;
+  background-color: #2d3a4b;
+  position: relative;
+  padding: 220px 35px 0;
 }
 
 .loginTitle {
+  font-size: 26px;
   margin: 0 auto 40px auto;
   text-align: center;
-  color: #151414;
-}
-
-.loginRemember {
-  margin: 0 0 15px 0;
-  text-align: left;
+  color: #eee;
+  font-weight: 700;
 }
 </style>
