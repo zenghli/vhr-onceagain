@@ -1,9 +1,6 @@
 <template>
   <el-container>
-    <div>
-      <div class="aside-title">这是标题栏</div>
-      <CommonAside></CommonAside>
-    </div>
+    <CommonAside> </CommonAside>
     <el-container>
       <CommonHeader></CommonHeader>
       <el-main>
@@ -27,16 +24,12 @@ export default {
 
 <style lang="scss">
 .el-container {
-  .aside-title {
-    height: 60px;
-    background-color: #2d3a4b;
-  }
+  /*background-color: #fff;*/
   height: 100%;
   .el-header {
     padding: 0;
   }
   .el-main {
-    background-color: #e9eef3;
     color: #333;
     text-align: center;
     line-height: 160px;

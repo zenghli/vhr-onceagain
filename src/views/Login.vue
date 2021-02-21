@@ -1,5 +1,5 @@
 <template>
-  <div style="height: 100%">
+  <div style="height: 100%; width: 100%;background-color: #2d3a4b">
     <el-form
       v-loading="loading"
       element-loading-text="网速不给力啊，还在登陆，请稍后片刻！"

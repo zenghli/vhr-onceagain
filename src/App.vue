@@ -12,7 +12,7 @@ html {
     height: 100%;
     #app {
       height: 100%;
-      background-color: #2d3a4b;
+      /*background-color: #2d3a4b;*/
     }
   }
 }
