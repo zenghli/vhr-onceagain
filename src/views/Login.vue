@@ -23,8 +23,7 @@
 </template>
 
 <script>
-import { postKeyValueRequest } from '../utils/api';
-
+// import { postKeyValueRequest } from '../utils/api';
 export default {
   name: 'Login',
   data() {
@@ -46,7 +45,7 @@ export default {
       this.$refs.loginForm.validate(valid => {
         if (valid) {
           this.loading = true;
-          postKeyValueRequest('doLogin', this.loginForm).then(resp => {
+          this.postKeyValueRequest('doLogin', this.loginForm).then(resp => {
             this.loading = false;
             if (resp) {
               // console.log(resp);
