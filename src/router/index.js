@@ -15,7 +15,14 @@ const routes = [
   {
     path: '/main',
     name: 'Main',
-    component: Main
+    component: Main,
+    children: [
+      {
+        path: '/home',
+        name: 'Home',
+        component: () => import('../views/home/Home')
+      }
+    ]
   }
 ];
 

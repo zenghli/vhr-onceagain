@@ -7,10 +7,12 @@
           <span>{{ item.label }}</span>
         </template>
         <el-menu-item-group>
-          <el-menu-item :index="subItem.path" v-for="(subItem, index) in item.children" :key="index">{{ subItem.label }}</el-menu-item>
+          <el-menu-item @click="clickMenu(subItem)" :index="subItem.path" v-for="(subItem, index) in item.children" :key="index">{{
+            subItem.label
+          }}</el-menu-item>
         </el-menu-item-group>
       </el-submenu>
-      <el-menu-item :index="item.path" v-for="item in noChildren" :key="item.path">
+      <el-menu-item @click="clickMenu(item)" :index="item.path" v-for="item in noChildren" :key="item.path">
         <i :class="'el-icon-' + item.icon"></i>
         <span slot="title">{{ item.label }}</span>
       </el-menu-item>
@@ -21,6 +23,12 @@
 <script>
 export default {
   name: 'CommonAside',
+  methods: {
+    clickMenu(val) {
+      // alert(val.name);
+      this.$router.push({ name: val.name });
+    }
+  },
   computed: {
     noChildren() {
       return this.asideMenu.filter(item => !item.children);
@@ -34,7 +42,7 @@ export default {
       asideMenu: [
         {
           path: '/',
-          name: 'home',
+          name: 'Home',
           label: '首页',
           icon: 's-home'
         },
@@ -74,7 +82,6 @@ export default {
 .el-aside {
   background-color: #545c64;
   color: #333;
-  text-align: center;
   .el-menu-item-group__title {
     padding: 0;
   }

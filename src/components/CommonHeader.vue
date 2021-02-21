@@ -27,10 +27,11 @@ export default {
 </script>
 
 <style lang="scss">
+header.el-header {
+  padding: 0;
+}
 .el-header {
-  padding-left: 0;
   width: 100%;
-  padding-left: 0;
   background-color: #eeeeee;
   color: black;
   display: flex;

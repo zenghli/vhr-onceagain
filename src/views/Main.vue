@@ -1,7 +1,7 @@
 <template>
   <el-container>
     <CommonAside></CommonAside>
-    <el-container>
+    <el-container class="right">
       <CommonHeader></CommonHeader>
       <el-main>
         <router-view />
@@ -25,11 +25,14 @@ export default {
 <style lang="scss">
 .el-container {
   height: 100%;
-  .el-main {
-    background-color: #e9eef3;
-    color: #333;
-    text-align: center;
-    line-height: 160px;
+  .right {
+    display: flex;
+    flex-direction: column;
+    .el-main {
+      padding: 0;
+      background-color: white;
+      color: #333;
+    }
   }
 }
 </style>
