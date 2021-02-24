@@ -50,7 +50,7 @@ export default {
             if (resp) {
               // console.log(resp);
               window.sessionStorage.setItem('user', JSON.stringify(resp.object));
-              this.$router.replace('/main');
+              this.$router.replace('/home');
               // let path = this.$route.query.redirect;
               // this.$router.replace(path === '/' || path === undefined ? '/home' : path);
             }

@@ -14,7 +14,7 @@
 import CommonHeader from '../components/CommonHeader';
 import CommonAside from '../components/CommonAside';
 export default {
-  name: 'Main',
+  name: 'Home',
   components: {
     CommonHeader,
     CommonAside

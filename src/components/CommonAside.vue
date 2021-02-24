@@ -1,13 +1,17 @@
 <template>
-  <el-aside width="200px" style="height: 100%">
-    <div class="aside-title">这是标题栏</div>
-    <el-menu router>
-      <el-submenu index="1" v-for="(item, index) in routes" :key="index">
+  <el-aside :width="isCollapse ? '60px' : '200px'" style="height: 100%">
+    <div class="aside-title">{{ systemName }}</div>
+    <el-menu router :collapse="isCollapse">
+      <el-submenu :index="index + ''" v-for="(item, index) in routes" :key="index">
         <template slot="title">
-          <i class="el-icon-location"></i>
+          <div></div>
+          <i style="margin-right: 5px;color: #409eff" :class="item.iconCls"></i>
           <span>{{ item.name }}</span>
         </template>
-        <el-menu-item :index="child.path" v-for="(child, indexj) in item.children" :key="indexj">{{ child.name }}</el-menu-item>
+        <el-menu-item :index="child.path" v-for="(child, indexj) in item.children" :key="indexj">
+          <i style="margin-right: 5px;color: #409eff" :class="child.iconCls"></i>
+          {{ child.name }}
+        </el-menu-item>
       </el-submenu>
     </el-menu>
   </el-aside>
@@ -16,11 +20,22 @@
 <script>
 export default {
   name: 'CommonAside',
+  data() {
+    return {
+      routesTest: []
+    };
+  },
   computed: {
-    routes: function() {
-      return this.$router.options.routes.filter(function(route) {
-        return !route.hidden;
+    routes() {
+      return this.$store.state.routes.filter(r => {
+        return !r.hidden;
       });
+    },
+    isCollapse() {
+      return this.$store.state.isCollapse;
+    },
+    systemName() {
+      return this.$store.state.isCollapse ? 'SYS' : '一个未命名的系统';
     }
   }
 };

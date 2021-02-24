@@ -2,7 +2,7 @@
   <el-header>
     <div class="title">
       <span style="margin-left: 10px">
-        <i class="el-icon-menu"></i>
+        <i @click="asideCollapse" class="el-icon-menu"></i>
       </span>
     </div>
 
@@ -28,6 +28,9 @@ export default {
     };
   },
   methods: {
+    asideCollapse() {
+      this.$store.commit('changeCollapse');
+    },
     commandHandler(cmd) {
       if (cmd === 'logout') {
         this.$confirm('此操作将注销登录, 是否继续?', '提示', {
@@ -40,6 +43,7 @@ export default {
             this.getRequest('/logout');
             window.sessionStorage.removeItem('user');
             this.$router.replace('/');
+            this.$store.commit('initRoutes', []);
           })
           .catch(() => {
             this.$message({
